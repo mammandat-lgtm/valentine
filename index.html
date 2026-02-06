@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💖</title>
+
+  <style>
+    body {
+      text-align: center;
+      background-color: #fff0f5;
+      font-family: Arial;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #ff69b4;
+      margin-top: 40px;
+      z-index: 2;
+      position: relative;
+    }
+
+    img {
+      width: 300px;
+      margin-top: 20px;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* HEARTS */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 24px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Will you be my Valentine? 💕</h1>
+
+  <img 
+    src="https://upload.wikimedia.org/wikipedia/en/0/05/Hello_Kitty_character_portrait.png"
+    alt="Hello Kitty"
+  >
+
+  <!-- Spotify preview -->
+  <div style="margin-top:30px; z-index:2; position:relative;">
+    <iframe
+      src="https://open.spotify.com/embed/track/5gT0mV5E0VnU2vQX8vJQ8n"
+      width="300"
+      height="80"
+      frameborder="0"
+      allow="autoplay; encrypted-media">
+    </iframe>
+    <p style="color:#888;">(Tap play 💗)</p>
+  </div>
+
+  <!-- HEARTS SCRIPT -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>
